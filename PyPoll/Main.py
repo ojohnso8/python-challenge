@@ -8,7 +8,7 @@ election_csv = os.path.join(".", "election_data.csv")
 #empty lists
 
 votes = []
-candidates = []
+candidateList= []
 
 #open csv
 with open(election_csv, newline = "") as csvfile:
@@ -18,15 +18,20 @@ with open(election_csv, newline = "") as csvfile:
     for row in csvreader:
     
         votes.append(row[0])
-        candidates.append(row[2])
+        candidateList.append(row[2])
 
   # The total number of votes cast  
     total_votes = len(votes)
     print("Total Votes: ", total_votes)
 
 # A complete list of candidates who received votes
+    x = candidateList
+    unique_candidate_list = list(set(x))
+    print("Candidates who received votes: ", unique_candidate_list)
 
 # The percentage of votes each candidate won
+
+
 
 # The total number of votes each candidate won
 
