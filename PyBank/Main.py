@@ -33,6 +33,9 @@ with open(budget_csv, newline = "") as csvfile:
 # then divide average total by the number of months
 # [(new value - old value) / old value] * 100 
 
+    average_change = round(total_amount/total_months, 2)
+    print("Average Change: $", average_change)
+
 # The greatest increase in profits (date and amount) over the entire period
 
 # The greatest decrease in losses (date and amount) over the entire period

@@ -25,9 +25,9 @@ with open(election_csv, newline = "") as csvfile:
     print("Total Votes: ", total_votes)
 
 # A complete list of candidates who received votes
-    unique_candidates = sorted(candidates)
-    print(unique_candidates)
 
 # The percentage of votes each candidate won
+
 # The total number of votes each candidate won
+
 # The winner of the election based on popular vote.
