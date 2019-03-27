@@ -30,11 +30,12 @@ with open(budget_csv, newline = "") as csvfile:
 
  #calculate the average of the changes in "Profit/Losses" over the entire period 
  #average change = new value - old value/old value * 100 ; x = rows
-    for x in range(len(revenue)):
+    for x in revenue:
         average_change = (revenue[x + 1] - revenue[x])/revenue[x] * 100
-        # print(average_change)
-        avg_rate_change = sum(average_change)/total_months
-        print(avg_rate_change)
+        print(average_change)
+        # avg_rate_change = sum(average_change)/total_months
+        # print(avg_rate_change)
+
 
 # The greatest increase in profits (date and amount) over the entire period
 
