@@ -19,15 +19,19 @@ with open(budget_csv, newline = "") as csvfile:
         months.append(row[0])
         revenue.append(int(row[1]))
 
-# #total months
-#     total_months = len(months)
-#     print("Total Months: ", total_months)
+#total months
+    total_months = len(months)
+    print("Total Months: ", total_months)
 
-# # The net total amount of "Profit/Losses" over the entire period
-#     total_amount = sum(revenue)
-#     print("Total: $",total_amount)
+# The net total amount of "Profit/Losses" over the entire period
+    total_amount = sum(revenue)
+    print("Total: $",total_amount)
 
 # The average of the changes in "Profit/Losses" over the entire period
+# you have to find calculate the % change for each row...
+# then add the averages
+# then divide average total by the number of months
+# [(new value - old value) / old value] * 100 
 
 # The greatest increase in profits (date and amount) over the entire period
 
