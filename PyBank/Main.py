@@ -18,6 +18,7 @@ with open(budget_csv, newline = "") as csvfile:
     for row in csvreader:
         months.append(row[0])
         revenue.append(int(row[1]))
+        # revenue_change.append(int(row[1]))
 
 #total months
     total_months = len(months)
@@ -33,8 +34,14 @@ with open(budget_csv, newline = "") as csvfile:
 # then divide average total by the number of months
 # [(new value - old value) / old value] * 100 
 
-    average_change = round(total_amount/total_months, 2)
-    print("Average Change: $", average_change)
+    # average_change = round(total_amount/total_months, 2)
+    # print("Average Change: $", average_change)
+    
+    for x in range(len(revenue)):
+        average_change = (revenue[x + 1] - revenue[x])/revenue[x] * 100
+        # print(average_change)
+        avg_rate_change = sum(average_change)/total_months
+        print(avg_rate_change)
 
 # The greatest increase in profits (date and amount) over the entire period
 
