@@ -36,14 +36,23 @@ with open(budget_csv, newline = "") as csvfile:
         # print(average_change)
     print("Average Change: $", round(average, 2))
 
-# The greatest increase in profits (date and amount) over the entire period
-    greatest_inc = 0
-    greatest_dec = 0
+# The greatest increase/decrease in profits (date and amount) over the entire period
+    greatest_increase = 0
+    greatest_decrease = 0
     
-    # for x in range(len(revenue)):
+    # for greatest_increase in range(len(revenue)):
     #     if revenue[x] >= greatest_inc:
     #         greatest_inc = revenue[x]
     #         print(x)
 
- 
-# The greatest decrease in losses (date and amount) over the entire period
+
+#write output
+output_path = os.path.join(".", "budget_output.csv")
+
+with open(output_path, 'w') as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter= ' ')
+    csvwriter.writerow(['Financial Analysis'])
+    csvwriter.writerow(['----------------------------'])
+    csvwriter.writerow(['Total Months: ' + str(total_months)])
+    csvwriter.writerow(['Total $' + str(total_amount)])
+    csvwriter.writerow(['Average Change: $' + str(round(average, 2))])
