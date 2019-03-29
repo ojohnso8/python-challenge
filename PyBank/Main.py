@@ -47,12 +47,11 @@ with open(budget_csv, newline = "") as csvfile:
 
 
 #write output
-output_path = os.path.join(".", "budget_output.csv")
+output_path = os.path.join(".", "budget_output.txt")
 
-with open(output_path, 'w') as csvfile:
-    csvwriter = csv.writer(csvfile, delimiter= ' ')
-    csvwriter.writerow(['Financial Analysis'])
-    csvwriter.writerow(['----------------------------'])
-    csvwriter.writerow(['Total Months: ' + str(total_months)])
-    csvwriter.writerow(['Total $' + str(total_amount)])
-    csvwriter.writerow(['Average Change: $' + str(round(average, 2))])
+with open(output_path, 'w') as writefile:
+    writefile.writelines('Financial Analysis' + '\n')
+    writefile.writelines('------------------------' + '\n')
+    writefile.writelines('Total Months: ' + str(total_months) + '\n')
+    writefile.writelines('Total $' + str(total_amount) + '\n')
+    writefile.writelines('Average Change: $' + str(round(average, 2)) + '\n')
