@@ -21,15 +21,15 @@ with open(budget_csv, newline = "") as csvfile:
 
 #calculate total months
     total_months = len(months)
-    print("Total Months: ", total_months)
+    # print("Total Months: ", total_months)
 
 #calculate the net total amount of "Profit/Losses" over the entire period
     total_amount = sum(revenue)
-    print("Total: $",total_amount)
+    # print("Total: $",total_amount)
 
  #calculate the average of the changes in "Profit/Losses" over the entire period 
     average = sum(revenue)/total_months
-    print("Average Change: $", round(average, 2))
+    # print("Average Change: $", round(average, 2))
 
 # The greatest increase/decrease in profits (date and amount) over the entire period
     greatest_increase= 0
@@ -42,14 +42,26 @@ with open(budget_csv, newline = "") as csvfile:
             greatest_increase = (revenue[inc]) - (revenue[inc - 1])
             greatest_inc_month = months[inc]
 
-    print('Greatest Increase Month ', greatest_inc_month) 
-    print('Greatest Increase Amt ', '$',greatest_increase)
+    # print('Greatest Increase Month ', greatest_inc_month) 
+    # print('Greatest Increase Amt ', '$',greatest_increase)
    
 
     for dec in range(len(revenue)):
         if  (revenue[dec]) - (revenue[dec- 1]) < greatest_decrease:
             greatest_decrease = (revenue[dec]) - (revenue[dec - 1])
             greatest_dec_month = months[dec]
+    # print('Greatest Decrease Month ', greatest_dec_month)
+    # print('Greatest Decrease Amt ', '$',greatest_decrease)
+
+#print to terminal
+
+    print("Financial Analysis")
+    print('------------------------')
+    print("Total Months: ", total_months)
+    print("Total: $",total_amount)
+    print("Average Change: $", round(average, 2))
+    print('Greatest Increase Month ', greatest_inc_month) 
+    print('Greatest Increase Amt ', '$',greatest_increase)
     print('Greatest Decrease Month ', greatest_dec_month)
     print('Greatest Decrease Amt ', '$',greatest_decrease)
 
