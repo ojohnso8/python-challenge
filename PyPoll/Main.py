@@ -13,7 +13,7 @@ poll_percentage = {}
 #empty lists/declarations
 
 votes = []
-unique_candidate_list = []
+unique_candidate = []
 winning_count = 0
 winning_candidate = ""
 winner_list = []
@@ -28,13 +28,13 @@ with open(election_csv, newline = "") as csvfile:
         votes.append(row[0])
 #Get list of unique candidate names
         candidate_name = row[2]
-        if candidate_name not in unique_candidate_list:
-            unique_candidate_list.append(candidate_name)
+        if candidate_name not in unique_candidate:
+            unique_candidate.append(candidate_name)
 
 # calculate total number of votes each candidate won   
             poll_data[candidate_name] = 0 #reset count
         poll_data[candidate_name] += 1 #adding up votes; total votes
-    print(unique_candidate_list) #checkwork
+    print(unique_candidate) #checkwork
     print(poll_data) #checkwork
 
 # calculate total number of votes cast  
@@ -55,6 +55,18 @@ with open(election_csv, newline = "") as csvfile:
     print(winning_candidate) #check work
     print(winning_count) #check work
 
+#print to terminal
+print("Election Results")
+print("--------------------------")
+print(f"Total Votes: ", total_votes)
+print("--------------------------")
+print(unique_candidate)
+print(poll_percentage)
+print(poll_data)
+print("---------------------------")
+print(f"Winner: {winning_candidate}")
+print("---------------------------")
+
 #write output
 output_path = os.path.join(".", "election_results.txt")
 
@@ -63,8 +75,8 @@ with open(output_path, 'w') as writefile:
     writefile.writelines('------------------------' + '\n')
     writefile.writelines('Total Votes: ' + str(total_votes) + '\n')
     writefile.writelines('------------------------' + '\n')
-    # # writefile.writelines(ENTER SUMMARY)
-    # # writefile.writelines(f'{unique_candidate}: {poll_percentage} ({poll_data})' + '\n')
-    # writefile.writelines(f'{unique_candidate}: {poll_percentage} ({poll_data})' + '\n')
+    writefile.writelines(str(unique_candidate) + '\n')
+    writefile.writelines(str(poll_percentage) + '\n')
+    writefile.writelines(str(poll_data) + '\n')
     writefile.writelines('------------------------' + '\n')
     writefile.writelines('Winner: ' + winning_candidate + '\n')
