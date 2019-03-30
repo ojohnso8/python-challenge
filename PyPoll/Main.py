@@ -60,6 +60,12 @@ print("Election Results")
 print("--------------------------")
 print(f"Total Votes: ", total_votes)
 print("--------------------------")
+
+#TAs: I've tried multiple ways to try and format the data below the way it should be in the 
+#example without luck. I believe the formatting trouble has to do with the way I wrote the code
+#above/logic flow. I have tried different combinations of the f-string to try and tease out individual 
+#values to group by candidate. But when I have done that, I have gotten some odd combinations (ie. only
+#one candidate name printing out and/or one vote count.)
 print(unique_candidate)
 print(poll_percentage)
 print(poll_data)
