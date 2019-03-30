@@ -14,7 +14,6 @@ with open(budget_csv, newline = "") as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
     csv_header = next(csvreader)
 
-
 #append month and revenue data from csv into empty lists created in lines 9 and 10
     for row in csvreader:
         months.append(row[0])
@@ -29,22 +28,30 @@ with open(budget_csv, newline = "") as csvfile:
     print("Total: $",total_amount)
 
  #calculate the average of the changes in "Profit/Losses" over the entire period 
- #average change = new value - old value/old value * 100 ; x = rows
-    # for x in revenue:
     average = sum(revenue)/total_months
-        # average_change = (revenue[x + 1] - revenue[x])/revenue[x] * 100
-        # print(average_change)
     print("Average Change: $", round(average, 2))
 
 # The greatest increase/decrease in profits (date and amount) over the entire period
-    greatest_increase = 0
-    greatest_decrease = 0
-    
-    # for greatest_increase in range(len(revenue)):
-    #     if revenue[x] >= greatest_inc:
-    #         greatest_inc = revenue[x]
-    #         print(x)
+    greatest_increase= 0
+    greatest_decrease= 0
+    inc = 0
+    dec = 0
+  
+    for inc in range(len(revenue)):
+        if (revenue[inc]) - (revenue[inc -1 ]) > greatest_increase:
+            greatest_increase = (revenue[inc]) - (revenue[inc - 1])
+            greatest_inc_month = months[inc]
 
+    print('Greatest Increase Month ', greatest_inc_month) 
+    print('Greatest Increase Amt ', '$',greatest_increase)
+   
+
+    for dec in range(len(revenue)):
+        if  (revenue[dec]) - (revenue[dec- 1]) < greatest_decrease:
+            greatest_decrease = (revenue[dec]) - (revenue[dec - 1])
+            greatest_dec_month = months[dec]
+    print('Greatest Decrease Month ', greatest_dec_month)
+    print('Greatest Decrease Amt ', '$',greatest_decrease)
 
 #write output
 output_path = os.path.join(".", "budget_output.txt")
@@ -55,3 +62,5 @@ with open(output_path, 'w') as writefile:
     writefile.writelines('Total Months: ' + str(total_months) + '\n')
     writefile.writelines('Total $' + str(total_amount) + '\n')
     writefile.writelines('Average Change: $' + str(round(average, 2)) + '\n')
+    writefile.writelines('Greatest Increase: ' + str(greatest_inc_month) + ' $' + str(greatest_increase) + '\n')
+    writefile.writelines('Greatest Decrease: ' + str(greatest_dec_month) + ' $' + str(greatest_decrease) + '\n')
